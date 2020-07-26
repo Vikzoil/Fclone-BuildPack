@@ -6,8 +6,8 @@ indent() {
   sed -u 's/^/       /'
 }
 
-###### install Rclone ##########
-echo "-----> Installing rclone"
+###### install Fclone ##########
+echo "-----> Installing Fclone"
 BUILD_DIR=$1
 CACHE_DIR=$2
 VENDOR_DIR="vendor"
@@ -17,12 +17,12 @@ DOWNLOAD_URL="https://raw.githubusercontent.com/Nenokkadine/aria2/master/fclone.
 mkdir -p "$CACHE_DIR"
 
 if ! [ -e "$CACHE_DIR/$FILE" ]; then
-  echo "-----> Fetching Latest Rclone binaries from ANTRAX" | indent
+  echo "-----> Fetching Latest Fclone binaries from Nenokkadine" | indent
   wget $DOWNLOAD_URL -q -O "$CACHE_DIR/$FILE"
 else
   filestr=$(find . -name "$CACHE_DIR/$FILE" -mtime +1 -print)
   if [ "$filestr" = "" ]; then
-    echo "-----> cache Expired, Fetching Latest Rclone from ANTRAX" | indent
+    echo "-----> cache Expired, Fetching Latest Fclone from Nenokkadine" | indent
     wget $DOWNLOAD_URL -q -O "$CACHE_DIR/$FILE"
   else
     echo "build using cached source"  | indent
@@ -37,7 +37,7 @@ cd fclone
 cp "$CACHE_DIR/$FILE" .
 unzip -qqj "$FILE"
 rm -rf "$FILE"
-chmod 777 rclone
+chmod 777 fclone
 
 echo "exporting PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/fclone.sh"
