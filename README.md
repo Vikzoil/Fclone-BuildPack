@@ -3,11 +3,11 @@
 1. Create new app
 
 ```
-heroku create myapp -b https://github.com/The-Antrax/heroku-buildpack-rclone-mod.git
+heroku create myapp -b https://github.com/Nenokkadine/heroku-buildpack-Fclone-mod.git
 heroku git:clone -a myapp
 
 # or useing existed app
-heroku buildpacks:set https://github.com/The-Antrax/heroku-buildpack-rclone-mod.git -a myapp
+heroku buildpacks:set https://github.com/Nenokkadine/heroku-buildpack-Fclone-mod.git -a myapp
 ```
 
 2. Setup Rclone by following [Rclone Docs](https://rclone.org/docs/) 
